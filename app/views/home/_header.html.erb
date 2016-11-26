@@ -1,0 +1,34 @@
+<div>
+        <nav class="navbar navbar-default navigation-clean">
+            <div class="container">
+                <div class="navbar-header"><%= link_to 'Sky Pin', root_path , class: "navbar-brand navbar-link"%>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li role="presentation"><%= link_to 'Home' , root_path %></li>
+                        <li role="presentation"><%= link_to 'About Us', home_about_path %></li>
+                        <% if user_signed_in? %>
+                            <li>
+                                <%= link_to 'Edit Profile', edit_user_registration_path %>
+                            </li>
+
+                            <li>
+                                <%= link_to 'Log out', 
+                                destroy_user_session_path, method: :delete%>
+                            </li>
+                        <% else %>
+                            <li>
+                                <%= link_to 'Log in',
+                                new_user_session_path %>
+                            </li>
+                            <li>
+                                <%= link_to 'Join', new_user_registration_path %>
+                            </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
